@@ -1,11 +1,15 @@
 package application;
 
+import boardGame.Board;
+import boardGame.Position;
+
 public class Program {
 
 	public static void main(String[] args) {
 
-		System.out.println("Let´s go the game");
-		System.out.println("new branch");
+		Position position = new Position(2, 5);
+		System.out.print(position);
+		Board board = new Board(8, 8);
 	}
 
 }
