@@ -24,4 +24,13 @@ public class Board {
 	public void setColumns(int columns) {
 		this.columns = columns;
 	}
+	//retornar uma peça dada uma linha e uma coluna - peça iniciando
+	//type Piece
+	public Piece piece (int row, int column) {
+		return pieces[row][column];
+	}
+	//criar uma sobrecarga - peça em movimento
+	public Piece piece (Position position) {
+		return pieces[position.getRow()][position.getColumn()];
+	}
 }

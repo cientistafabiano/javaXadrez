@@ -10,7 +10,7 @@ public class Piece {
 		this.board = board;
 		position = null;
 	}
-	//nimguem de fora pode alterar o board
+	//ninguem de fora pode alterar o board
 	protected Board getBoard() {
 		return board;
 	}
