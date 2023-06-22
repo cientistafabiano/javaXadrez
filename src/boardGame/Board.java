@@ -60,6 +60,23 @@ public class Board {
 		//position deixou de ser null
 		piece.position = position;
 	}
+	//remove a piece of the board
+	public Piece removePiece(Position position) {
+		//programaçao defensiva
+		if (!positionExists(position)) {
+			throw new BoardException("Não há a posiçao no tabuleiro");
+		}
+		if (piece(position) == null) {
+			return null;
+		}
+		//criar uma variavel do tipo Piece
+		Piece aux = piece(position);
+		aux.position = null;
+		pieces[position.getRow()][position.getColumn()] = null;
+		return aux;
+	}
+	
+	
 	//methods auxiliar
 	//aqui dentro da class vai ser mais facil testar pela row and column do q pela position
 	//essa position sera valida se estiver dentro do board

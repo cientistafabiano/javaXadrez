@@ -1,6 +1,10 @@
 package application;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 import chess.ChessPiece;
+import chess.ChessPosition;
 import chess.Color;
 
 public class UI {
@@ -25,6 +29,22 @@ public class UI {
 	public static final String ANSI_PURPLE_BACKGROUND = "\u001B[45m";
 	public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
 	public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
+	
+	//ler uma posição 
+	public static ChessPosition readChessPosition(Scanner sc) {
+		try {
+			//criar uma variavel para receber o q for digitaado pelo gamer
+			String s = sc.nextLine();
+			//pegar a primeira posicao pois é a coluna a segunda é a linha 
+			char column = s.charAt(0);
+			//recortar a positção 0, e transformar p inteiro
+			int row = Integer.parseInt(s.substring(1));
+			return new ChessPosition(column, row);
+		}
+		catch (RuntimeException e) {
+			throw new InputMismatchException("Erro lendo a posicao do xadre: Valores validos sao de a1 a h8.");
+		}
+	}
 
 	// print the board
 	public static void printBoard(ChessPiece[][] pieces) {
