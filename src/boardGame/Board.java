@@ -49,8 +49,8 @@ public class Board {
 		return pieces[position.getRow()][position.getColumn()];
 	}
 	
-	//colocando piece in board
-	public void PlacePiece (Piece piece, Position position) {
+	//colocando piece in the board
+	public void placePiece (Piece piece, Position position) {
 		//testar se ja existe uma piece nesta posição
 		if (thereIsAPiece(position)) {
 			throw new BoardException("Já existe uma peça nesta posição" + position);
@@ -65,8 +65,7 @@ public class Board {
 	//essa position sera valida se estiver dentro do board
 	private boolean positionExists(int row, int column) {
 		//altura do board == rows && qde de columns
-		return row >= 0 && row < rows && column >= 0 && column < columns;
-		
+		return row >= 0 && row < rows && column >= 0 && column < columns;		
 	}
 	//verificar se uma position existe
 	public boolean positionExists(Position position) {
