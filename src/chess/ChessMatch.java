@@ -55,14 +55,19 @@ public class ChessMatch {
 		if (!board.thereIsAPiece(position)) {
 			throw new ChessException("Nao ha peca na posicao de origem.");
 		}
-	}
+		//validar se ha movimentos possiveis para a piece
+		//acessar o board -> piece na posicao de origem -> chamar: isThereAnyPossibleMove
+		//se nao tiver nenhum movimento possivel? lanca uma exception
+		if (!board.piece(position).isThereAnypossibleMove()){
+			throw new ChessException("Nao existe movimentos possiveis para a peca");			
+		}
+	}	
 	
 	//informar a posição pelas coordenadas do xadrez para colocar a peça no board
 	private void placeNewPiece(char column, int row, ChessPiece piece) {
 		board.placePiece(piece, new ChessPosition(column, row).toPosition());
 	}
-	
-	
+		
 	//function that start the piece in the game
 	private void initialSetup() {
 		placeNewPiece('c', 1, new Rook(board, Color.WHITE));

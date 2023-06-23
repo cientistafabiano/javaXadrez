@@ -2,8 +2,8 @@ package chess;
 
 import boardGame.Board;
 import boardGame.Piece;
-
-public class ChessPiece extends Piece {
+//como Piece virou abstract chessPiece q é subclass de Piece deve ser abstract
+public abstract class ChessPiece extends Piece {
 	private Color color;
 	//constructor
 	public ChessPiece(Board board, Color color) {
