@@ -71,7 +71,7 @@ public class ChessMatch {
 		}
 	}
 	
-	//informar a posição pelas coordenadas do xadrez para colocar a peça no board
+	//inFormar a posição pelas coordenadas do xadrez para colocar a peça no board
 	private void placeNewPiece(char column, int row, ChessPiece piece) {
 		board.placePiece(piece, new ChessPosition(column, row).toPosition());
 	}
