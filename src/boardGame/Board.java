@@ -36,7 +36,7 @@ public class Board {
 	public Piece piece (int row, int column) {
 		//programação defensiva
 		if (!positionExists(row, column)) {
-			throw new BoardException("Posição fora do tabuleiro/board.");
+			throw new BoardException("Posicao fora do tabuleiro/board.");
 		}
 		return pieces[row][column];
 	}
@@ -44,7 +44,7 @@ public class Board {
 	public Piece piece (Position position) {
 		//programação defensiva
 		if (!positionExists(position)) {
-			throw new BoardException("Posição fora do tabuleiro/board.");
+			throw new BoardException("Posicao fora do tabuleiro/board.");
 		}
 		return pieces[position.getRow()][position.getColumn()];
 	}
@@ -53,7 +53,7 @@ public class Board {
 	public void placePiece (Piece piece, Position position) {
 		//testar se ja existe uma piece nesta posição
 		if (thereIsAPiece(position)) {
-			throw new BoardException("Já existe uma peça nesta posição" + position);
+			throw new BoardException("Ja existe uma peca nesta posicao" + position);
 		}
 		//pegar a matriz de piece e add a piece
 		pieces[position.getRow()][position.getColumn()] = piece;
@@ -64,7 +64,7 @@ public class Board {
 	public Piece removePiece(Position position) {
 		//programaçao defensiva
 		if (!positionExists(position)) {
-			throw new BoardException("Não há a posiçao no tabuleiro");
+			throw new BoardException("Nao ha a posicao no tabuleiro");
 		}
 		if (piece(position) == null) {
 			return null;
@@ -92,7 +92,7 @@ public class Board {
 	public boolean thereIsAPiece(Position position) {
 		//programação defensiva
 		if (!positionExists(position)) {
-			throw new BoardException("Posição fora do tabuleiro/board.");
+			throw new BoardException("Posicao fora do tabuleiro/board.");
 		}
 		return piece(position) != null;
 	}

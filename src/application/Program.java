@@ -23,7 +23,7 @@ public class Program {
 				//pedir a posição inicial da peça
 				System.out.print("Source: ");
 				ChessPosition source = UI.readChessPosition(sc);
-				
+				System.out.println();
 				//pedir a posição final da peça
 				System.out.print("Target: ");
 				ChessPosition target = UI.readChessPosition(sc);

@@ -22,7 +22,7 @@ public abstract class Piece {
 		return possibleMoves()[position.getRow()][position.getColumn()];
 	}
 	//se existe apenas um movimento possivel
-	public boolean isThereAnypossibleMove() {
+	public boolean isThereAnyPossibleMove() {
 		//criar uma variavel
 		boolean[][] mat = possibleMoves();
 		//percorrer essa matrix para verificar se existe
