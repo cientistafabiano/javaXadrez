@@ -28,8 +28,7 @@ public class Program {
 				boolean[][] possibleMoves = chessMatch.possibleMoves(source);
 				UI.clearScreen();
 				//criar uma sobrecarga de printBoard
-				UI.printBoard(chessMatch.getPieces(), possibleMoves);
-				
+				UI.printBoard(chessMatch.getPieces(), possibleMoves);			
 				
 				System.out.println();
 				//pedir a posição final da peça
