@@ -29,6 +29,16 @@ public class ChessMatch {
 		}
 		return mat;
 	}
+	//implementar para q seja mostrado no board os possiveis movimentos de uma piece
+	public boolean[][] possibleMoves(ChessPosition sourcePosition){
+	//converter a posicao dew xadrez para uma posicao comum
+		Position position = sourcePosition.toPosition();
+		//validar a posicao
+		validateSourcePosition(position);
+		return board.piece(position).possibleMoves();
+	}
+	
+	
 	//performar o movimento de uma posicao de origem/source p uma posicao final/target
 	public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition) {
 		Position source = sourcePosition.toPosition();

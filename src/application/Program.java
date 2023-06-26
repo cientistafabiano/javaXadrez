@@ -23,6 +23,14 @@ public class Program {
 				//pedir a posição inicial da peça
 				System.out.print("Source: ");
 				ChessPosition source = UI.readChessPosition(sc);
+				
+				//imprimir as possiveis posicao a partir da origem
+				boolean[][] possibleMoves = chessMatch.possibleMoves(source);
+				UI.clearScreen();
+				//criar uma sobrecarga de printBoard
+				UI.printBoard(chessMatch.getPieces(), possibleMoves);
+				
+				
 				System.out.println();
 				//pedir a posição final da peça
 				System.out.print("Target: ");
