@@ -7,13 +7,23 @@ import chess.piece.King;
 import chess.piece.Rook;
 
 public class ChessMatch {
+	private int turn;
+    private Color currentPlayer;
 	private Board board;
 	
 	//methods para definir o tamanho do board
 	public ChessMatch() {
 		//cria o board e chama a função q inicia o jogo
 		board = new Board(8,8);
+		turn = 1;
+		currentPlayer = Color.WHITE;
 		initialSetup();
+	}
+	public int getTurn() {
+		return turn;
+	}
+	public Color getCurrentPlayer() {
+		return currentPlayer;
 	}
 	
 	//methods que return uma Piece[][] correspondente a chessMatch
@@ -47,6 +57,8 @@ public class ChessMatch {
 		validateTargetPosition(source, target);
 		//capturar a peça e mover da origem para o destino
 		Piece capturedPiece = makeMove(source, target);
+		//depois da jogada chama o 
+		nextTurn();
 		//como capturePiece é do tipo Piece - fazer downcasting p ChessPiece
 		return (ChessPiece) capturedPiece;
 	}
@@ -66,6 +78,11 @@ public class ChessMatch {
 		if (!board.thereIsAPiece(position)) {
 			throw new ChessException("Nao ha peca na posicao de origem.");
 		}
+		//verificar de qual cor é a jogada --- o getColor é uma propriedade do ChessPiece
+		//testo se a peca é uma peca do adversario, sendo?
+		if (currentPlayer != ((ChessPiece)board.piece(position)).getColor()) {
+			throw new ChessException("A peca escolhida nao e sua");
+		}
 		//validar se ha movimentos possiveis para a piece
 		//acessar o board -> piece na posicao de origem -> chamar: isThereAnyPossibleMove
 		//se nao tiver nenhum movimento possivel? lanca uma exception
@@ -79,6 +96,12 @@ public class ChessMatch {
 		if (!board.piece(source).possibleMove(target)) {
 			throw new ChessException("A peca escolhida nao pode mover se para a posicao desejada");
 		}
+	}
+	//troca de turno
+	private void nextTurn() {
+		turn++;
+		//					se for igual a branco, troca para preto, senao é branco
+		currentPlayer = (currentPlayer == Color.WHITE) ? Color.BLACK : Color.WHITE;
 	}
 	
 	//inFormar a posição pelas coordenadas do xadrez para colocar a peça no board

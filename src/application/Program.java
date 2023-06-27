@@ -18,7 +18,8 @@ public class Program {
 			try {
 				//chamando para limpar
 				UI.clearScreen();
-				UI.printBoard(chessMatch.getPieces());
+				//fpo trocado o printBoard por printMatch
+				UI.printMatch(chessMatch);
 				System.out.println();
 				//pedir a posição inicial da peça
 				System.out.print("Source: ");
