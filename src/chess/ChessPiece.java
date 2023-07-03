@@ -15,6 +15,10 @@ public abstract class ChessPiece extends Piece {
 	public Color getColor() {
 		return color;
 	}	
+	//methods que pega uma posicao no xadrez - logica de cheque
+	public ChessPosition getChessPosition() {
+		return ChessPosition.fromPosition(position);
+	}
 	//verificar se ha uma peca do oponente nesta posicao
 	protected boolean isThereOpponentPiece(Position position) {
 		//pegar a peca q esta nesta posicao no board - fazer downcasting

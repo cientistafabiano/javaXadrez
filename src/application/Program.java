@@ -22,7 +22,7 @@ public class Program {
 			try {
 				//chamando para limpar
 				UI.clearScreen();
-				//fpo trocado o printBoard por printMatch
+				//foi trocado o printBoard por printMatch
 				UI.printMatch(chessMatch, captured);
 				System.out.println();
 				//pedir a posição inicial da peça

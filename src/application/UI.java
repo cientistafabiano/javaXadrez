@@ -34,7 +34,7 @@ public class UI {
 	public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
 	public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 	
-	//limpando a tela do git bash depois das entradas do source e target
+	//methods limpando a tela do git bash depois das entradas do source e target
 	public static void clearScreen() {
 		System.out.print("\033[H\033[2J");
 		System.out.flush(); 
@@ -43,11 +43,11 @@ public class UI {
 	//ler uma posição 
 	public static ChessPosition readChessPosition(Scanner sc) {
 		try {
-			//criar uma variavel para receber o q for digitaado pelo gamer
+			//criar uma variavel para receber o q for digitado pelo gamer
 			String s = sc.nextLine();
 			//pegar a primeira posicao pois é a coluna a segunda é a linha 
 			char column = s.charAt(0);
-			//recortar a positção 0, e transformar p inteiro
+			//transformar p inteiro -|-recortar a posição 0 
 			int row = Integer.parseInt(s.substring(1));
 			return new ChessPosition(column, row);
 		}
@@ -64,6 +64,10 @@ public class UI {
 		System.out.println();
 		System.out.println("Turno: " + chessMatch.getTurn());
 		System.out.println("Esperando jogador: " + chessMatch.getCurrentPlayer());
+		//mostrar ao usuario q a partida esta em check
+		if (chessMatch.getCheck()) {
+			System.out.println("CHECK");
+		}
 	}
 
 	// print the board
@@ -79,12 +83,12 @@ public class UI {
 		}
 		System.out.println("  a b c d e f g h");
 	}
-	// print the board - sobrecarga
+	// print the board - sobrecarga/overload
 		public static void printBoard(ChessPiece[][] pieces, boolean[][] possibleMoves) {
 			for (int i = 0; i < pieces.length; i++) {
 				System.out.print((8 - i) + " ");
 				for (int j = 0; j < pieces.length; j++) {
-					// com o possibleMoves eu pinto o fundo da piece no board
+					// com o possibleMoves pinta o fundo da piece no board
 					printPiece(pieces[i][j], possibleMoves[i][j]);
 				}
 				// quebra de linha
